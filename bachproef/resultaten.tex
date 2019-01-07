@@ -322,3 +322,38 @@ De user interface is heel erg aangenaam. De oefeningen zijn allemaal geïllustre
 De applicatie is ontwikkeld door Leap Fitness Group. Dus de oefeningen zijn opgesteld door experten op het vlak van fitness. De applicatie heeft een beoordeling van 4.8 op 5.
 
 Gebruikers omschrijven de applicatie als een goede hulp bij het trainen. Het neemt slechts een aantal minuten per dag in beslag en gebruikers zien snel resultaat. 
+
+\subsection{Coaching Applicaties }
+
+\textbf{Google Fit}
+
+Google fit is een centrale opslagplaats voor informatie over de gezondheid voor gebruikers van Android. Deze informatie kan de gebruiker raadplegen in de applicatie waar alles mooi uitgeschreven staat wat hij de afgelopen dag(en) gepresteerd heeft.
+
+Aangezien de applicatie een centraal punt is voor data, is het vanzelfsprekend dat de applicatie kan gekoppeld worden met externe apps. Onder meer runkeeper en andere producten waar Google mee samenwerkt. Het gebruik van geolocatie is dus mogelijk mits de juiste applicatie te koppelen. 
+
+De app zou het leven de gebruiker makkelijker moeten maken omdat de app informatie geeft waar de gebruiker geen zicht op heeft. Zo is het mogelijk om slaap te meten of het eet- en drinkpatroon van de gebruiker te meten. De app maakt je dus bewust van zaken waar de gebruiker niet dagelijks aan denkt. 
+
+De applicatie is ontwikkeld door Google die een API heeft opengesteld voor andere ontwikkelaars om dit platform te integreren in applicaties. Hoe meer data Google Fit kan verzamelen, hoe beter en juister de conclusies zullen zijn. 
+
+De applicatie scoort een 3.8 op 5 in de Google Play Store. Gebruikers beschrijven de applicatie als overzichtelijk. Zonder smartwatch is de applicatie ook niet 100\% accuraat. 
+
+\textbf{Apple Health}
+
+Net zoals Google fit is ook Apple Health een centrale opslagplaats voor gezondheidsdata van een gebruiker maar dan voor IOS. Op deze manier kan je alles checken wat je de afgelopen dag(en) hebt gedaan zonder verschillende applicaties te moeten openen.
+
+De applicatie staat toe om andere apps te verbinden. Het is ook mogelijk om een smartwatch te verbinden om nog meer data te verkrijgen wat de mogelijkheid biedt tot geolocatie. 
+
+De applicatie is opgedeeld in 4 onderdelen. De eerste is de grootste, namelijk ‘activiteit’. Hierin worden stappen, hoogtemeters, verdiepingen, trainingsminuten enzovoort berekend. Het tweede deel is ‘slaap’. Door gebruik te maken van een externe applicatie, is het mogelijk om het slaappatroon van de gebruiker te meten. Dit is echter beperkt tot de basis. Het voorlaatste deel is ‘voeding’. De app toont hoeveel voeding je van een bepaald type hebt gegeten mits de gebruiker dit heeft ingegeven in een andere externe applicatie. De laatste categorie is ‘mindfulness’. Deze applicatie laat het toe om een externe applicatie te koppelen met oefeningen om  de gebruiker tot rust te laten komen. 
+
+De applicatie is ontwikkeld door Apple, de score van de applicatie staat niet vermeld en er zijn geen reviews over deze applicatie beschikbaar.
+
+\newpage
+\section{Proof of concept: Voorspelling van een gebruikerstype}
+
+Na de training zoals in het hoofdstuk van methodologie beschreven staat, is de machine klaar om een voorspelling te doen op nieuwe data. De data wordt via een csv bestand ingelezen in het Python script. Vervolgens wordt ook er ook het eerder getrainde trainingsmodel opgehaald zodat het trainingsmodel een voorspelling kan maken op de nieuwe data. De output van dit voorbeeld is 0.0010478813201189041. Aangezien er 3 keuzes zijn namelijk 0, 0.5 en 1, is het logisch dat in dit geval het getal dicht bij 0 ligt en dit ook mag gezien worden als de keuze 0. In dit geval betekent 0 dat de gebruiker een type is die best een applicatie kiest met voedingsadvies. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1\textwidth]{bachproef/img/output_ml.png}
+\caption{Output van de voorspelling}
+\end{figure}
