@@ -3,49 +3,55 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Hier introduceer je werk. Je hoeft hier nog niet te technisch te gaan.
-
-Je beschrijft zeker:
-
-\begin{itemize}
-  \item de probleemstelling en context
-  \item de motivatie en relevantie voor het onderzoek
-  \item de doelstelling en onderzoeksvraag/-vragen
-\end{itemize}
+Technologie wordt steeds belangrijker in ons leven.  We ge-bruiken technologie onder andere om ons leven aangenamerte maken.  Zowel in de Apple als de Play store zijn er veelapplicaties die mobile coaching aanbieden, het doel van dezeapplicaties is om een gezondere levensstijl te hanteren.  Uitonderzoek blijkt dat niet alle applicaties even kwaliteitsvolzijn.De bedoeling van dit onderzoek is om een voorstudie te doenvoor applicatie ontwikkelaars om betere mobile coaching ap-plicaties te bouwen met behulp van de community.Want veelgebruikers zijn teleurgesteld in deze applicaties en bekomenniet hun gewenst resultaat. Wat willen de gebruikers in dezeapplicaties?  Wat zijn absolute musts?  En kunnen we aande hand van de antwoorden voorspellen welke applicatie bijwelke gebruiker past met behulp van machine learning?
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
-
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke werken je refereert en waarom.
-
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
-
-Je mag gerust gebruik maken van subsecties in dit onderdeel.
+In 2015 is een vergelijkende studie gedaan, namelijk \textcite{JMIR2015}. Het onderzoek bestudeerde mobile coaching applicaties die op dat moment op de markt waren. Er wordt gewerkt met een schaal waarin men de applicaties gaat vergelijken met vooraf vastgelegde richtlijnen. Uit de conclusie blijkt dat slechts een klein procent van de applicaties aan alle richtlijnen voldoet. Het is belangrijk bij mobile coaching applicaties dat de gebruiker centraal staat. \hfill  \break\break
+Onder de noemer mobile coaching valt meer dan enkel bewegingsoefeningen, voor een gezonde levensstijl is veel meer nodig. In \textcite{EQUILIBRIO2005}  wordt ' life management system ' omschreven waarin krachtoefeningen en voedingsschema's centraal staan om een gezonde levensstijl te evenaren.\textcite{EQUILIBRIO2005} beschrijft dat je door deze combinatie een gelukkiger leven zal leiden. \hfill\break
+ \break
+We stellen dus vast dat veel mobiele applicaties niet voldoen aan fundamentele aanbevelingen voor de gezondheid. Er zijn 3 goede indicators waar ontwikkelaars voor dit type applicaties best rekening mee houden, namelijk: het FITT-principe\footnote{Frequency Intensity Type en Time’: hoe vaak , hoe intensief en hoe lang wordt er getraind?
+}, veiligheid en structuur.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor experimenten, vragenlijsten, simulaties? Je beschrijft ook al welke tools je denkt hiervoor te gebruiken of te ontwikkelen.
+Dit onderzoek omtrent mobile coaching zal geen applicaties vergelijken maar gebruik maken van de community om te bepalen wat de gebruikers écht nodig hebben en wat niet. Daarom stellen we een vragenlijst op voor een mobile coaching applicatie: 
+\begin{itemize}
+\item Wat is uw geslacht?
+\item Wat is uw leeftijd?
+\item Hoe vaak sport u per week?
+\item Hoe beoefent u meestal lichaamsbeweging?
+\item Welk besturingssysteem heeft uw smartphone?
+\item Hoe belangrijk vindt u het uitzicht en gebruiksgemak van een applicatie?
+\item Heeft u al betalende applicaties gedownload?
+\item Heeft u al een mobile coaching applicatie gebruikt?
+\item Vindt u reclame in applicaties storend?
+\item Ik kies voor een Mobile Coaching applicatie waarin ik...  
+\begin{itemize}
+\item enkel voedingsschema's krijg.
+\item enkel trainingsschema's krijg.
+\item voeding- en trainingschema's krijg.
+\end{itemize}
+\item Wat is uw hoofddoel bij het gebruik van een Mobile Coaching applicatie?
+\item Ik vind extra uitleg of filmpjes bij oefeningen...?
+\item Welke applicatie past best bij mij?\hfill \break \break 
+\end{itemize}
+ De vragenlijst zal hoofdzakelijk digitaal beschikbaar gesteld worden op \textcite{Facebook} en gezondheidsfora.  Voor het onderzoek zal een zelfgemaakte een PHP-platform voorzien worden waarin de antwoorden opgeslagen worden in een CSV-bestand. \hfill \break \break 
+ In het tweede deel van het onderzoek zal een \textcite{Python} omgeving opgezet worden om machine learning toe te passen. Er zal een model met neuronen getraind worden met \textcite{Keras} en onderliggend \textcite{TensorFlow}. Het model zal dagelijks 2 keer getraind worden met data. Eens het model voldoende getraind is, zal het in staat zijn om voorspellingen te doen met nieuwe data.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
+Om correcte voorspellingen te doen met machine learning zijn veel resultaten noodzakelijk. Hoe meer antwoorden we krijgen uit onze vragenlijst, hoe accurater onze machine een voorspelling zal kunnen doen. Indien er niet genoeg resultaten zijn zal alles toch uitgewerkt worden maar dan als proof-of-concept.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
-
+De conclusie hangt af van het aantal deelnemers aan het onderzoek. Verder wordt er verwacht dat de gebruikers 'user experience' boven de functionaliteit verkiezen. Iets wat professioneel oogt zal meestal als goed in het algemeen bestempeld worden. Er wordt verwacht dat men duidelijk gebruikers kan onderverdelen in verschillende groepen aan de hand de vragenlijst. De vragenlijst kan verder los gebruikt worden als applicatie ontwikkelaar om rekening te houden met de vraag van de community.\hfill \break \break 
