@@ -1,3 +1,128 @@
+
+\lstlistoflistings
 \section{Github repository} % The \section*{} command stops section numbering
 
 Alle code in verband met Deep Learning is terug te vinden in een github repository: \url{https://github.com/DylanVanPaemel/Bachelorproef}
+
+\section{Deep Learning Python code} 
+\subsection{Preprocessing Data} 
+\begin{lstlisting}[language=Python]
+import pandas as pd
+from sklearn.preprocessing import MinMaxScaler
+
+# Load training data set from CSV file
+training_data_df = pd.read_csv("trainingdata.csv",sep=',')
+
+training_data_df=
+training_data_df.apply(lambda col: pd.factorize(col)[0])
+
+# Load testing data set from CSV file
+test_data_df = pd.read_csv("answers.csv",sep=',')
+test_data_df = test_data_df.apply
+(lambda col: pd.factorize(col)[0])
+# Data needs to be scaled to a small range like 0 to 1
+for the neural
+# network to work well.
+scaler = MinMaxScaler(feature_range=(0,1))
+
+# Scale both the training inputs and outputs
+scaled_training = scaler.fit_transform(training_data_df)
+scaled_testing = scaler.transform(test_data_df)
+
+
+# Create new pandas DataFrame objects from the scaled data
+scaled_training_df = pd.DataFrame
+(scaled_training, columns=training_data_df.columns.values)
+scaled_testing_df = pd.DataFrame(
+scaled_testing, columns=test_data_df.columns.values)
+
+# Save scaled data dataframes to new CSV files
+scaled_training_df.to_csv
+("preprocess_training_data.csv", index=False)
+scaled_testing_df.to_csv
+("preprocess_test_data.csv", index=False)
+\end{lstlisting}
+
+\subsection{Create model} 
+\begin{lstlisting}[language=Python]
+import pandas as pd
+import keras
+from keras.models import Sequential
+from keras.layers import *
+
+training_data_df = 
+pd.read_csv("../data/preprocess_training_data.csv")
+X = training_data_df.drop
+(['id', 'preferred_app', 'age'], axis=1).values
+Y = training_data_df[['preferred_app']].values
+RUN_NAME = "Training"
+
+# Create a TensorBoard logger
+logger = keras.callbacks.TensorBoard(
+    log_dir='logs/{}'.format(RUN_NAME),
+    histogram_freq=5,
+    write_graph=True
+)
+
+# Define the model
+model = Sequential()
+
+# layers
+model.add(Dense(50, input_dim=11, activation='relu'))
+model.add(Dense(70, activation='relu'))
+model.add(Dense(45, activation='relu'))
+model.add(Dense(20, activation='relu'))
+model.add(Dense(1, activation='linear'))
+
+# loss function
+model.compile(loss="mean_squared_error", optimizer="adam")
+
+# Train the model
+model.fit(
+    X,
+    Y,
+    epochs=75,
+    shuffle=True,
+    verbose=2,
+    callbacks=[logger]
+)
+
+# loading test data
+
+test_data_df = pd.read_csv("../data/preprocess_test_data.csv")
+
+X_test = test_data_df.drop(['id', ' preferred_app', 'age'], axis=1).values
+Y_test = test_data_df[[' preferred_app']].values
+
+test_error_rate = model.evaluate(X_test, Y_test, verbose=0)
+print(test_error_rate)
+
+#saving model to file
+model.save("../data/trained_model.h5")
+print("Model saved.")
+\end{lstlisting}
+
+\subsection{R script analyse} 
+\begin{lstlisting}[language=Python]
+import pandas as pd
+from keras.models import load_model
+
+model = load_model("../data/trained_model.h5")
+
+#predict
+#logs python -m tensorboard.main --logdir=PythonFiles/
+
+X = pd.read_csv("../data/new_prediction.csv").values
+
+prediction = model.predict(X)
+
+prediction = prediction[0][0]
+
+prediction = prediction + 0
+prediction = prediction /1
+
+print(prediction)
+\end{lstlisting}
+
+\subsection{Create model} 
+\lstinputlisting[language=R]{bachproef/code/vragenlijst.R}
